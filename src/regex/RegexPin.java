@@ -14,7 +14,17 @@ class RegexPin {
 		Matcher m = p.matcher(pin);
 		return m.matches();
 	}
-	
+	public static boolean isValidName(String fname) {
+		// Regex to check valid username of India.
+	   String regex = " ^[A-Z]{1}[a-zA-Z]{2,}$";
+
+		Pattern p = Pattern.compile(regex);
+		if (fname == null) {
+			return false;
+		}
+		Matcher m = p.matcher(fname);
+		return m.matches();
+	}
 	public static boolean isValidEmail(String email) {
 		// Regex to check valid email of India.
 		String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+){0,1}(\\.[A-Za-z]{2,})$";
@@ -32,6 +42,9 @@ class RegexPin {
 		System.out.println("Enter the PINCODE");
 		String pin = sc.nextLine();
 		System.out.println(pin + ":" + isValidPinCode(pin));
+		System.out.println("Enter First name ");
+		String fname = sc.nextLine();
+		System.out.println(fname + ":" + isValidName(fname));
 		System.out.println("Enter the EMAIL");
 		String email = sc.nextLine();
 		System.out.println(email + ":" + isValidEmail(email));
