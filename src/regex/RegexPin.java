@@ -25,6 +25,17 @@ class RegexPin {
 		Matcher m = p.matcher(fname);
 		return m.matches();
 	}
+	public static boolean isValidPHno(String num) {
+		// Regex to check valid pin code of India.
+	   String regex = "^(91)\\s{1}[1-9]{1}[0-9]{9}$";
+
+		Pattern p = Pattern.compile(regex);
+		if (num == null) {
+			return false;
+		}
+		Matcher m = p.matcher(num);
+		return m.matches();
+	}
 	public static boolean isValidEmail(String email) {
 		// Regex to check valid email of India.
 		String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+){0,1}(\\.[A-Za-z]{2,})$";
@@ -48,6 +59,9 @@ class RegexPin {
 		System.out.println("Enter Last name ");
 		String lname = sc.nextLine();
 		System.out.println(lname + ":" + isValidName(lname));
+		System.out.println("Enter Phone number ");
+		String phno = sc.nextLine();
+		System.out.println(phno + ":" + isValidPHno(phno));
 		System.out.println("Enter the EMAIL");
 		String email = sc.nextLine();
 		System.out.println(email + ":" + isValidEmail(email));
