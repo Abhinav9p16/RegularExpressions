@@ -15,12 +15,25 @@ class RegexPin {
 		return m.matches();
 	}
 	
+	public static boolean isValidEmail(String email) {
+		// Regex to check valid email of India.
+		String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		Pattern p = Pattern.compile(regex);
+		if (email == null) {
+			return false;
+		}
+		Matcher m = p.matcher(email);
+		return m.matches();
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Regular Expressions");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the PINCODE");
 		String pin = sc.nextLine();
 		System.out.println(pin + ":" + isValidPinCode(pin));
-	
+		System.out.println("Enter the EMAIL");
+		String email = sc.nextLine();
+		System.out.println(email + ":" + isValidEmail(email));
 	}
 } 
