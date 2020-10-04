@@ -48,7 +48,7 @@ class RegexPin {
 	}
 	public static boolean isValidPass(String pass) {
 		// Regex to check valid pin code of India.
-		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])" + "(?=\\S+$).{8,}$";
+		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=\\S+$).{8,}$";
 
 		Pattern p = Pattern.compile(regex);
 		if (pass == null) {
