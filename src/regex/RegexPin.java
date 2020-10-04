@@ -46,7 +46,17 @@ class RegexPin {
 		Matcher m = p.matcher(email);
 		return m.matches();
 	}
+	public static boolean isValidPass(String pass) {
+		// Regex to check valid pin code of India.
+		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])" + "(?=\\S+$).{8,}$";
 
+		Pattern p = Pattern.compile(regex);
+		if (pass == null) {
+			return false;
+		}
+		Matcher m = p.matcher(pass);
+		return m.matches();
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to Regular Expressions");
 		Scanner sc = new Scanner(System.in);
@@ -65,5 +75,9 @@ class RegexPin {
 		System.out.println("Enter the EMAIL");
 		String email = sc.nextLine();
 		System.out.println(email + ":" + isValidEmail(email));
+		System.out.println("Enter Password ");
+		String pass = sc.nextLine();
+		System.out.println(pass + ":" + isValidPHno(pass));
+
 	}
 } 
