@@ -45,6 +45,9 @@ class RegexPin {
 		System.out.println("Enter First name ");
 		String fname = sc.nextLine();
 		System.out.println(fname + ":" + isValidName(fname));
+		System.out.println("Enter Last name ");
+		String lname = sc.nextLine();
+		System.out.println(lname + ":" + isValidName(lname));
 		System.out.println("Enter the EMAIL");
 		String email = sc.nextLine();
 		System.out.println(email + ":" + isValidEmail(email));
